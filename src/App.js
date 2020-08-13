@@ -1,10 +1,12 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, Component} from "react";
 import axios from 'axios'
 import {BASE_URL, API_KEY} from './constants'
 import "./App.css";
 import Header from "./component/Header"
 import Image from "./component/Image"
 import Input from "./component/Input"
+import styled from 'styled-components'
+
 
 function App() {
 
@@ -30,7 +32,7 @@ function App() {
 
   }
 
-  if (!nasaData) return <div>hi</div>
+  if (!nasaData) return <div><h1>Loading ...</h1></div>
   return (
     <div className="App">
       <Header nasaData={nasaData}/>
