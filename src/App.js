@@ -10,45 +10,43 @@ function App() {
 
   const [nasaData, setNasaData] = useState()
   const [dates, setDates] = useState('')
-  const [year, setYear] = useState()
-  const [month, setMonth] = useState()
-  const [day, setDay] = useState()
+  const [year, setYear] = useState(null)
+  const [month, setMonth] = useState(null)
+  const [day, setDay] = useState(null)
 
   useEffect(()=>{
-    axios.get(`${BASE_URL}?api_key=${API_KEY[Math.floor(Math.random() * API_KEY.length)]}${dates}`)
+    axios.get(`${BASE_URL}?api_key=${API_KEY[Math.floor(Math.random() * API_KEY.length)]}${!dates ? '&date=2020-03-20': dates}`)
       .then(response =>{
-        // console.log(response)
         setNasaData(response.data)
       })
       .catch(error =>{
-        // debugger
       })
-  }, [])
+  }, [dates])
 
-  const changeDate = date => {
+  const changeDate = () => {
     // if !year, month, and day return
-    if (!year || !month || !day) return
-    //setdates
+    if (!year || !month || !day ) return setDates(null)
     setDates(`&date=${year}-${month}-${day}`)
+
   }
 
-  if (!nasaData) return <div></div>
+  if (!nasaData) return <div>hi</div>
   return (
     <div className="App">
       <Header nasaData={nasaData}/>
       <Input 
-      year={year}
+      yyyy={year}
+      mm={month}
+      dd={day}
       setYear={setYear}
-      month={month}
       setMonth={setMonth}
-      day={day}
       setDay={setDay}
-      setYear={changeDate} //function
+      changeDate={changeDate} //function
       />
       <Image nasaData={nasaData} />
       <p>
         Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
+        app! Have fun<span role="img" aria-label='go!'>🚀</span>!
       </p>
     </div>
   );

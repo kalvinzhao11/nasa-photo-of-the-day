@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useEffect} from 'react'
 
-const Input = () => {
+const Input = (props) => {
+    const {yyyy, mm, dd, setYear, setMonth, setDay, changeDate} = props
     const years = []
     const months = []
     const days = []
@@ -13,33 +14,48 @@ const Input = () => {
     for (let x = 1; x <=28; x++){
         days.push(x)
     }
-    console.log(years)
+    const yearChange = eve => {
+        const year = document.querySelector('#yearInput').value
+        setYear(year)
+    }
+    const monthChange = eve => {
+        const month = document.querySelector('#monthInput').value
+        setMonth(month)
+    }
+    const dayChange = eve => {
+        const day = document.querySelector('#dayInput').value
+        setDay(day)
+
+    }
+    useEffect(()=>{
+        changeDate()
+    },[dd,mm,yyyy])
     return (
         <form>
             <label>Year: &nbsp;
             <select 
                 id="yearInput"
                 name="year"
-                onChange={onchange}
+                onChange={() => yearChange()}
             >   
-                <option disabled='true' ></option>
+                <option></option>
                 {
                     years.map(year =>{
-                        return <option value=''>{year}</option> 
+                        return <option value={year} id='yearsel'>{year}</option>
                     })
-                }   
+                }   $
             </select>
             </label>
             <label>Month: &nbsp;
             <select 
                 id="monthInput"
                 name="month"
-                onChange={onchange}
+                onChange={() => monthChange()}
             >   
-                <option disabled='true' ></option>
+                <option></option>
                 {
                     months.map(month =>{
-                        return <option value=''>{month}</option> 
+                        return <option value={month}>{month}</option> 
                     })
                 }   
             </select>
@@ -48,8 +64,9 @@ const Input = () => {
             <select 
                 id="dayInput"
                 name="day"
-                onChange={onchange}
+                onChange={() => dayChange()}
             >   
+                <option></option>
                 {
                     days.map(day =>{
                         return <option value={day}>{day}</option> 
@@ -57,6 +74,7 @@ const Input = () => {
                 }   
             </select>
             </label>
+            <div><br></br></div>
         </form>
     )
 }

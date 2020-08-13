@@ -5,4 +5,6 @@ export const API_KEY = ['WKOTzQ1n5pF9UNisttH54ctAvGGY3IfRFeK5P7Xn',
                             '45etKnAlM1RBXG7xMzWHacJ72LANQLLOUt5T6Fa7',
                             'fNaKMQv0wHq6QhIlmrdtSlECtErhlDkCduEjHB6L',
                             'XTaOFFqiLyjt2qcA4thu6FEGsBw8PQaPLNNV7XHx',
-                            'UKeS1Y4G2eHHZ1rH0ctJdG8BHBUWeDM30k3UrKrL']
+                            'UKeS1Y4G2eHHZ1rH0ctJdG8BHBUWeDM30k3UrKrL',
+                            'e8C0Hv3mx9E89c2NRWCuwTHP5YNm2PG34Tg2UhLG',
+                            'uZCWecdnFPj3HsS1Ex63lh7gkljHlek5QdJYaOjd']
