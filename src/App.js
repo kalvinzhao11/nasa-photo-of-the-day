@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "./component/Header"
 import Image from "./component/Image"
 import Input from "./component/Input"
+import Footer from './component/Footer'
 import styled from 'styled-components'
 
 
@@ -46,10 +47,7 @@ function App() {
       changeDate={changeDate} //function
       />
       <Image nasaData={nasaData} />
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun<span role="img" aria-label='go!'>🚀</span>!
-      </p>
+      <Footer />
     </div>
   );
 }

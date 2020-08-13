@@ -6,6 +6,7 @@ const Form = styled.form `
     background-color: #282828;
     select {
         padding-right: 1%;
+        border-radius: 10%;
     }
 `
 
